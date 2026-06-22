@@ -4,4 +4,5 @@ export interface DashboardOverview {
   today_orders: number;
   today_revenue: number;
   pile_utilization: number;
+  today_scheduled_vehicles: number;
 }

@@ -4,6 +4,7 @@ from django.utils import timezone
 from apps.charging.models import ChargingPile
 from apps.common.constants.enums import OrderStatus, PaymentStatus, PileStatus, VehicleStatus
 from apps.orders.models import TripOrder
+from apps.scheduling.services import ScheduleService
 from apps.vehicles.models import Vehicle
 
 
@@ -19,6 +20,7 @@ class DashboardService:
             "today_orders": TripOrder.objects.filter(created_at__date=today).count(),
             "today_revenue": TripOrder.objects.filter(created_at__date=today, payment_status=PaymentStatus.PAID).aggregate(total=Sum("fare"))["total"] or 0,
             "pile_utilization": round(used_piles / total_piles * 100, 2),
+            "today_scheduled_vehicles": ScheduleService.count_scheduled_vehicles_by_date(today),
         }
 
     @staticmethod

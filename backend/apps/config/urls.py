@@ -5,6 +5,7 @@ from apps.charging.views import ChargingPileViewSet
 from apps.common.views import AuditLogViewSet, health
 from apps.maintenance.views import MaintenanceRecordViewSet
 from apps.orders.views import TripOrderViewSet
+from apps.scheduling.views import VehicleScheduleViewSet
 from apps.users.views import LoginView, UserViewSet
 from apps.vehicles.views import VehicleViewSet
 
@@ -13,6 +14,7 @@ router.register("vehicles", VehicleViewSet, basename="vehicles")
 router.register("charging-piles", ChargingPileViewSet, basename="charging-piles")
 router.register("orders", TripOrderViewSet, basename="orders")
 router.register("maintenance-records", MaintenanceRecordViewSet, basename="maintenance-records")
+router.register("schedules", VehicleScheduleViewSet, basename="schedules")
 router.register("users", UserViewSet, basename="users")
 router.register("audit-logs", AuditLogViewSet, basename="audit-logs")
 

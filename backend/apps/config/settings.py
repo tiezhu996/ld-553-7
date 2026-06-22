@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     "apps.orders",
     "apps.maintenance",
     "apps.dashboard",
+    "apps.scheduling",
 ]
 
 MIDDLEWARE = [
